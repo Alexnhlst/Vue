@@ -5,11 +5,11 @@
 - [x] Development environment setup
 - [x] JavaScript ES6/ES7
 - [x] [Getting started](index.html)
-- [x] [Setting up the view](https://github.com/Alexnhlst/Vue/blob/06e7c448288a98ea9b9c96bfc6ba287ebeba8dd3/index.html#L26-L63)
+- [x] [Setting up the view](../../tree/chapter-1/index.html#L26-L63)
 - [x] [Data model](seed.js) 
 - [x] [Application instance](main.js)
-- [x] [Data binding](https://github.com/Alexnhlst/Vue/blob/7d876e87a313ac24900e70c175bf61e61b2fab38/index.html#L30-L62)
-- [x] [List rendering](https://github.com/Alexnhlst/Vue/blob/5b312c8f42d3ade5e9e72d6a4d614ec315e01ac9/index.html#L27-L35)
+- [x] [Data binding](../../tree/chapter-1/index.html#L30-L62)
+- [x] [List rendering](../../tree/chapter-1/index.html#L27-L35)
 - [x] [Sorting](../../tree/chapter-1/main.js#L9-#L17)
 - [ ] [Event handling]()
 - [ ] [Components]()
