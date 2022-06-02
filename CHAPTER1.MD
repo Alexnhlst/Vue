@@ -15,3 +15,4 @@
 - [x] [Class bindings](../../tree/chapter-1/index.html#L31-#L37)
 - [x] [Components](../../tree/chapter-1/main.js#L1-#L34)
 - [x] [props](../../tree/chapter-1/main.js#L42-#L52)
+- [x] [Shorthand syntax](index.html)

@@ -7,10 +7,11 @@ const submissionComponent = {
   // 1. In Vue 3, the template of a component doesn't have to be enclosed within a single root element
   // 2. the submission object is currentyle undefined. when the component is declared, we're going have to pass data from the parent component using props
   // 3. the upvote() method needs to be mapped to a method wwithin the component
+  // v-on has a shorthand syntax: v-on:click -> in can be shortened with @click
   template: `<div style="display: flex; width: 100%">
     <figure class="media-left">
       <img class="image is-64x64"
-        v-bind:src="submission.submissionImage">
+        :src="submission.submissionImage">
     </figure>
     <div class="media-content">
       <div class="content">
@@ -27,13 +28,14 @@ const submissionComponent = {
           <small class="is-size-7">
             Submitted by:
             <img class="image is-24x24"
-              v-bind:src="submission.avatar">
+              :src="submission.avatar">
           </small>
         </p>
       </div>
     </div>
     <div class="media-right">
-      <span class="icon is-small" v-on:click="upvote(submission.id)">
+     <!-- v-on has a shorthand syntax: v-on:click -> in can be shortened with @click -->
+      <span class="icon is-small" @click="upvote(submission.id)">
         <i class="fa fa-chevron-up"></i>
         <strong class="has-text-info">{{ submission.votes }}</strong>
       </span>
