@@ -2,8 +2,6 @@
 
 ### Chapter 1 milestones
 
-- [x] Development environment setup
-- [x] JavaScript ES6/ES7
 - [x] [Getting started](index.html)
 - [x] [Setting up the view](../../tree/chapter-1/index.html#L26-L63)
 - [x] [Data model](seed.js) 
