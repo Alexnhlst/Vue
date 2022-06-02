@@ -27,27 +27,30 @@
       <div class="section">
         <article class="media">
           <figure class="media-left">
+            <!-- The simplest form of data binding in Vue is usinge the mustache syntax {{}}   -->
+            <!-- For attributes like href, id, src, etc, Vue provides the v-bing attribute -->
             <img
-              src="./public/images/submissions/image-yellow.png"
-              alt=""
               class="image is-64x64"
+              v-bind:src="submissions[0].submissionImage"
             />
           </figure>
           <div class="media-content">
             <div class="content">
               <p>
                 <strong>
-                  <a href="#" class="has-text-info">Yellow Pail</a>
-                  <span class="tag is-small">#4</span>
+                  <a v-bind:href="submissions[0].url" class="has-text-info">
+                    {{ submissions[0].title}}
+                  </a>
+                  <span class="tag is-small"> {{submissions[0].id}} </span>
                 </strong>
                 <br />
-                On-demand sand castle construction expertise
+                {{submissions[0].description}}
                 <br />
                 <small class="is-size-7">
                   Submitted by:
                   <img
-                    src="./public/images/avatars/daniel.jpg"
                     class="image is-24x24"
+                    v-bind:src="submissions[0].avatar"
                   />
                 </small>
               </p>
@@ -56,7 +59,7 @@
           <div class="media-right">
             <span class="icon is-small">
               <i class="fa fa-chevron-up"></i>
-              <strong class="has-text-info">10</strong>
+              <strong class="has-text-info"> {{submissions[0].votes}} </strong>
             </span>
           </div>
         </article>
