@@ -10,6 +10,6 @@
 - [x] [Application instance](main.js)
 - [x] [Data binding](https://github.com/Alexnhlst/Vue/blob/7d876e87a313ac24900e70c175bf61e61b2fab38/index.html#L30-L62)
 - [x] [List rendering](https://github.com/Alexnhlst/Vue/blob/5b312c8f42d3ade5e9e72d6a4d614ec315e01ac9/index.html#L27-L35)
-- [ ] [Sorting]()
+- [x] [Sorting](../../tree/chapter-1/main.js#L9-#L17)
 - [ ] [Event handling]()
 - [ ] [Components]()

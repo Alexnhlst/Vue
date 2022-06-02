@@ -6,6 +6,15 @@ const upvoteApp = {
       submissions: Seed.submissions,
     };
   },
+  // computed properties are used to handle complex calculations of information
+  // that need to be displayed in the view. sortedSubmissions() returns a sorted array
+  computed: {
+    sortedSubmissions() {
+      return this.submissions.sort((a, b) => {
+        return b.votes - a.votes;
+      });
+    },
+  },
 };
 
 // createApp() takes an options object as its first parameter
