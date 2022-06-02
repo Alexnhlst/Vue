@@ -29,7 +29,7 @@
             v-for = "item in items" -> item is an alias, items is the data collection -->
         <!-- The key attribute is used to create unique bindings for each node's identity -->
         <article
-          v-for="submission in submissions"
+          v-for="submission in sortedSubmissions"
           v-bind:key="submission.id"
           class="media"
         >
