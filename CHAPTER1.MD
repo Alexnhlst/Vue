@@ -11,5 +11,6 @@
 - [x] [Data binding](../../tree/chapter-1/index.html#L30-L62)
 - [x] [List rendering](../../tree/chapter-1/index.html#L27-L35)
 - [x] [Sorting](../../tree/chapter-1/main.js#L9-#L17)
-- [x] [Event handling](../../tree/chapter-1/main.js#L18-#27)
+- [x] [Event handling](../../tree/chapter-1/main.js#L18-#L27)
+- [x] [Class bindings](../../tree/chapter-1/index.html#L31-#L37)
 - [ ] [Components]()
