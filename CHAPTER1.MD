@@ -5,7 +5,7 @@
 - [x] [Development environment setup]()
 - [x] [JavaScript ES6/ES7]()
 - [x] [Getting started](index.html)
-- [ ] [Setting up the view]()
+- [x] [Setting up the view](index.html?plain=26-63)
 - [ ] [Making the view data-driven]()
 - [ ] [List rendering]()
 - [ ] [Sorting]()
