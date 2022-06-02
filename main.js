@@ -39,6 +39,17 @@ const submissionComponent = {
       </span>
     </div>
   </div>`,
+  // adding props
+  props: ["submission", "submissions"],
+  // migrated the method from the application instance
+  methods: {
+    upvote(submissionId) {
+      const submission = this.submissions.find(
+        (submission) => submission.id === submissionId
+      );
+      submission.votes++;
+    },
+  },
 };
 
 // Creating the application instance
@@ -56,16 +67,6 @@ const upvoteApp = {
       return this.submissions.sort((a, b) => {
         return b.votes - a.votes;
       });
-    },
-  },
-  // methods, the upvote method is called by v-on
-  // state within Vue is reactive
-  methods: {
-    upvote(submissionId) {
-      const submission = this.submissions.find(
-        (submission) => submission.id === submissionId
-      );
-      submission.votes++;
     },
   },
   components: {

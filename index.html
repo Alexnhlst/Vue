@@ -36,7 +36,13 @@
           class="media"
         >
           <!-- Replaced the content with an instance of the component -->
-          <submission-component></submission-component>
+          <!-- props, attributes that need to be given a value in the parent component, -->
+          <!-- can only flow in a single direction (parent to child) -->
+          <!-- v-bind is used to bind dynamic values as props in a parent instance -->
+        <submission-component
+          v-bind:submission="submission"
+          v-bind:submissions="sortedSubmissions">
+        </submission-component>
         </article>
       </div>
       </div>

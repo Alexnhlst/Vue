@@ -14,4 +14,4 @@
 - [x] [Event handling](../../tree/chapter-1/main.js#L18-#L27)
 - [x] [Class bindings](../../tree/chapter-1/index.html#L31-#L37)
 - [x] [Components](../../tree/chapter-1/main.js#L1-#L34)
-- [ ] [props]()
+- [x] [props](../../tree/chapter-1/main.js#L42-#L52)
