@@ -13,4 +13,5 @@
 - [x] [Sorting](../../tree/chapter-1/main.js#L9-#L17)
 - [x] [Event handling](../../tree/chapter-1/main.js#L18-#L27)
 - [x] [Class bindings](../../tree/chapter-1/index.html#L31-#L37)
-- [ ] [Components]()
+- [x] [Components](../../tree/chapter-1/main.js#L1-#L34)
+- [ ] [props]()
