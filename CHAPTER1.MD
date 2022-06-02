@@ -5,7 +5,7 @@
 - [x] Development environment setup
 - [x] JavaScript ES6/ES7
 - [x] [Getting started](index.html)
-- [x] [Setting up the view](index.html?plain=26-63#L26-L63)
+- [x] [Setting up the view](https://github.com/Alexnhlst/Vue/blob/06e7c448288a98ea9b9c96bfc6ba287ebeba8dd3/index.html#L26-L63)
 - [ ] [List rendering]()
 - [ ] [Sorting]()
 - [ ] [Event handling]()
