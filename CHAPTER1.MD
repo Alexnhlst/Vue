@@ -2,9 +2,9 @@
 
 ### Chapter 1 milestones
 
-- [ ] [Development environment setup]()
-- [ ] [JavaScript ES6/ES7]()
-- [ ] [Getting started]()
+- [x] [Development environment setup]()
+- [x] [JavaScript ES6/ES7]()
+- [x] [Getting started](index.html)
 - [ ] [Setting up the view]()
 - [ ] [Making the view data-driven]()
 - [ ] [List rendering]()
