@@ -1,6 +1,6 @@
 # Learning Vue.js :tada:
 
-### Chapter 1 milestones
+### Chapter 2 milestones
 
 - [ ] [Single-File Components]()
 - [ ] [Breaking the app into components]()
