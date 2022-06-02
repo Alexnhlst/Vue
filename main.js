@@ -15,6 +15,16 @@ const upvoteApp = {
       });
     },
   },
+  // methods, the upvote method is called by v-on
+  // state within Vue is reactive
+  methods: {
+    upvote(submissionId) {
+      const submission = this.submissions.find(
+        (submission) => submission.id === submissionId
+      );
+      submission.votes++;
+    },
+  },
 };
 
 // createApp() takes an options object as its first parameter
