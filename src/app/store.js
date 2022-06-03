@@ -28,10 +28,7 @@ export const store = {
   // the other to filter the events array of the targeted day, based on event.details
   editEvent(dayId, eventDetails) {
     this.resetEditOfAllEvents();
-    const dayObj = this.state.data.find((day) => day.id === dayId);
-    const eventObj = dayObj.events.find(
-      (event) => event.details === eventDetails
-    );
+    const eventObj = this.getEventObj(dayId, eventDetails);
     eventObj.edit = true;
   },
   // resetEditOfAllEvents() sets all events to the the non-edit state prior to toggling the targeted event
@@ -41,5 +38,21 @@ export const store = {
         event.edit = false;
       });
     });
+  },
+  // updateEvent() is similar to editEvent()
+  // the edit attribute is set to false to revert the display
+  // out of the edit UI element
+  updateEvent(dayId, originalEventDetails, newEventDetails) {
+    // find the day object
+    const eventObj = this.getEventObj(dayId, originalEventDetails);
+    // set the event details to the new details
+    // and turn off editing
+    eventObj.details = newEventDetails;
+    eventObj.edit = false;
+  },
+  // helper method to use in editEvent() and updateEvent()
+  getEventObj(dayId, eventDetails) {
+    const dayObj = this.state.data.find((day) => day.id === dayId);
+    return dayObj.events.find((event) => event.details === eventDetails);
   },
 };
