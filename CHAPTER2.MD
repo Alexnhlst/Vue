@@ -7,3 +7,5 @@
 - [x] [Breaking the app into components](src/app/App.vue)
 - [x] [State mutations](src/app/App.vue)
 - [x] [getActiveDay | setActiveDay](../../tree/chapter-2/src/app/store.js#L9-#L21)
+- [x] [submitEvent](../../tree/chapter-2/src/app/store.js#L22-#L25)
+- [x] [editEvent](../../tree/chapter-2/src/app/store.js#L26-#L44)
