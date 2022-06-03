@@ -4,4 +4,4 @@
 
 - [x] [Single-File Components](src/app/MyComponent.vue)
 - [x] [Simple State Management](src/app/store.js)
-- [ ] [Breaking the app into components]
+- [x] [Breaking the app into components](src/app/App.vue)
