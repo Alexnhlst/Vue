@@ -1,11 +1,16 @@
 <template>
   <div id="app">
+    <CalendarWeek />
+    <CalendarEntry />
   </div>
 </template>
 
 <script>
+import CalendarWeek from './components/CalendarWeek.vue';
+import CalendarEntry from './components/CalendarEntry.vue';
 export default {
   name: "App",
+  components: { CalendarWeek, CalendarEntry }
 };
 </script>
 
@@ -15,7 +20,8 @@ body,
 #app {
   height: 100%;
 }
-
+</style>
+<style lang="scss" scoped>
 #app {
   background: #6e6e6e;
   display: flex;
