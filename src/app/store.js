@@ -55,4 +55,14 @@ export const store = {
     const dayObj = this.state.data.find((day) => day.id === dayId);
     return dayObj.events.find((event) => event.details === eventDetails);
   },
+  // deleteEvent() use JS's findIndex() ont he Array object
+  // to return the index of the event to be deleted
+  // then splice() is used to remove thevent from the events array
+  deleteEvent(dayId, eventDetails) {
+    const dayObj = this.state.data.find((day) => day.id === dayId);
+    const eventIndexToRemove = dayObj.events.findIndex(
+      (event) => event.details === eventDetails
+    );
+    dayObj.events.splice(eventIndexToRemove, 1);
+  },
 };
