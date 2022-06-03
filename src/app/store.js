@@ -17,4 +17,10 @@ export const store = {
       dayObj.id === dayId ? (dayObj.active = true) : (dayObj.active = false);
     });
   },
+  // The submitEvent() method gets the active day from getActiveDay
+  // it then pushes new event details and set the edit property to false
+  submitEvent(eventDetails) {
+    const activeDay = this.getActiveDay();
+    activeDay.events.push({ details: eventDetails, edit: false });
+  },
 };
