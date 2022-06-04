@@ -71,10 +71,6 @@ const getters = {
   getNoteCount: (state) => state.notes.length,
 };
 
-const inputComponent = {
-  template: `<input placeholder="Enter a note" class="input is-small" type="text"/>`,
-};
-
 // The Vuex library provides a function for creating a store
 // this function requires state and mutations objects
 const store = Vuex.createStore({
@@ -83,6 +79,28 @@ const store = Vuex.createStore({
   actions,
   getters,
 });
+
+const inputComponent = {
+  template: `<input
+    placeholder="Enter a note"
+    v-model="input"
+    @keyup.enter="monitorEnterKey"
+    class="input is-small" type="text"/>`,
+  data() {
+    return {
+      input: "",
+    };
+  },
+  methods: {
+    // store actions are dispatched with store.dispatch("nameOfAction", payload)
+    // to reference the injected store object, we use this.$store
+    monitorEnterKey() {
+      this.$store.dispatch("addNote", this.input);
+      this.$store.dispatch("addTimestamp", new Date().toLocaleString());
+      this.input = "";
+    },
+  },
+};
 
 // to inject the store to the app within all components, we need to pass the store
 // object to the application's instance
