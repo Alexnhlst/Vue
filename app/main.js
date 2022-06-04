@@ -102,12 +102,24 @@ const inputComponent = {
   },
 };
 
+const noteCountComponent = {
+  template: `<div class="note-count">
+      Note count: <strong>{{noteCount}}</strong>
+    </div>`,
+  computed: {
+    noteCount() {
+      return this.$store.getters.getNoteCount;
+    },
+  },
+};
+
 // to inject the store to the app within all components, we need to pass the store
 // object to the application's instance
 // the chained .use() method alllow to install a Vue plugin and pass the store object
 const app = Vue.createApp({
   components: {
     "input-component": inputComponent,
+    "note-count-component": noteCountComponent,
   },
 });
 
