@@ -42,6 +42,21 @@ const mutations = {
   },
 };
 
+// Actions are functions that exist to call mutations
+// they can perform asynchronous calls/logic handling before commiting to mutations
+// actions receive an object as the first argument
+// the context object allows to access the state with context.state, access getters with context.getters, and call/commit to mutations with context.commit
+// an optional payload is passed as a second argument
+// using context.commit to call the mutations, we can update our action object
+const actions = {
+  addNote(context, payload) {
+    context.commit("ADD_NOTE", payload);
+  },
+  addTimestamp(context, payload) {
+    context.commit("ADD_TIMESTAMP", payload);
+  },
+};
+
 const inputComponent = {
   template: `<input placeholder="Enter a note" class="input is-small" type="text"/>`,
 };
