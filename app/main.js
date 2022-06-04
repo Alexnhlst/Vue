@@ -75,10 +75,23 @@ const inputComponent = {
   template: `<input placeholder="Enter a note" class="input is-small" type="text"/>`,
 };
 
-const app = {
+// The Vuex library provides a function for creating a store
+// this function requires state and mutations objects
+const store = Vuex.createStore({
+  state,
+  mutations,
+  actions,
+  getters,
+});
+
+// to inject the store to the app within all components, we need to pass the store
+// object to the application's instance
+// the chained .use() method alllow to install a Vue plugin and pass the store object
+const app = Vue.createApp({
   components: {
     "input-component": inputComponent,
   },
-};
+});
 
-Vue.createApp(app).mount("#app");
+app.use(store);
+app.mount("#app");
