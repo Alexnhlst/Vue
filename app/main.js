@@ -1,8 +1,20 @@
 // Creating the Event Bus
 // an event bus is a global property that is used to enable
 // isolated components to subscribe and publish
-// custom ecents between each other
+// custom events between each other
 const emitter = mitt();
+
+const noteCountComponent = {
+  template: `<div class="note-count">Note count: <strong>{{noteCount}}</strong></div>`,
+  data() {
+    return {
+      noteCount: 0,
+    };
+  },
+  created() {
+    emitter.on("add-note", (event) => this.noteCount++);
+  },
+};
 
 const inputComponent = {
   // Binding data values
@@ -40,6 +52,7 @@ const inputComponent = {
 const app = {
   components: {
     "input-component": inputComponent,
+    "note-count-component": noteCountComponent,
   },
   // Adding properties
   data() {
@@ -56,6 +69,11 @@ const app = {
       this.notes.push(event.note);
       this.timestamps.push(event.timestamp);
     },
+  },
+  // The created hook is triggered the moment a Vue component has been created
+  // and the component data and events can be accessed
+  created() {
+    emitter.on("add-note", (event) => this.addNote(event));
   },
 };
 
