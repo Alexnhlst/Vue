@@ -2,4 +2,4 @@
 
 ### Chapter 5 milestones
 
-- [ ] [Static version of the app]()
+- [x] [Static version of the app](src/app/App.vue)
