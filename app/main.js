@@ -117,6 +117,14 @@ const noteCountComponent = {
 // object to the application's instance
 // the chained .use() method alllow to install a Vue plugin and pass the store object
 const app = Vue.createApp({
+  computed: {
+    notes() {
+      return this.$store.getters.getNotes;
+    },
+    timestamps() {
+      return this.$store.getters.getTimestamps;
+    },
+  },
   components: {
     "input-component": inputComponent,
     "note-count-component": noteCountComponent,

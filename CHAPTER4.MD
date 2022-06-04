@@ -10,3 +10,4 @@
 - [x] [Store](../../tree/chapter-4/app/main.js#L78-#L97)
 - [x] [Input component](../../tree/chapter-4/app/main.js#L83-#L103)
 - [x] [Note count component](../../tree/chapter-4/app/main.js#L105-#L114)
+- [x] [Root instance](../../tree/chapter-4/app/main.js#L116-#L135)
