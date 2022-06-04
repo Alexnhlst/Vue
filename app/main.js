@@ -57,6 +57,20 @@ const actions = {
   },
 };
 
+// Getters are to an application store what computed properties are to a component
+// they are used to derive computed information from store state. we can call getters
+// multiple times in our actions and in our components
+// getters aren't required to work with with Vuex since information
+// from store state can be directly obtained
+// however, if this functionality is required in multiple places and to avoid
+// repetition, getters can be used to streamline this everywhere
+// getters receive state as theri first argument
+const getters = {
+  getNotes: (state) => state.notes,
+  getTimestamps: (state) => state.timestamps,
+  getNoteCount: (state) => state.notes.length,
+};
+
 const inputComponent = {
   template: `<input placeholder="Enter a note" class="input is-small" type="text"/>`,
 };
