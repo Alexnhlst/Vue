@@ -2,4 +2,4 @@
 
 ### Chapter 4 milestones
 
-- [ ] [Vuex Store]()
+- [x] [Vuex introduction](../../tree/chapter-4/app/main.js#L1-#L13)
