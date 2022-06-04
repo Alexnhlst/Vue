@@ -2,5 +2,5 @@
 
 ### Chapter 3 milestones
 
-- [ ] [TODO]()
+- [x] [JavaScript Custom Events](customEvent.js)
 
