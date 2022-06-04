@@ -10,3 +10,4 @@
 - [x] [cartModule](src/app/store/modules/cart/index.js)
 - [x] [productListItem](src/app/components/cart/CarttListItem.vue)
 - [x] [Interactivity: addCartItem](../../tree/chapter-5/src/app/components/product/ProductListItem.vue#L17-#L27)
+- [x] [Interactivity: addCartItem](../../tree/chapter-5/src/app/components/cart/CartListItem.vue#L19-#L29)

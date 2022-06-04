@@ -14,7 +14,7 @@
 </template>
 
 <script>
-// mapAction is an helper method that directly maps the component method action to the store action
+// mapActions is an helper method that directly maps the component method action to the store action
 import { mapActions } from 'vuex'
 export default {
     name: "ProductListItem",
