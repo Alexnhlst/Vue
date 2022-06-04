@@ -18,12 +18,21 @@
         <div class="columns">
           <div class="column has-text-centered">
             <strong>Notes</strong>
+            <div class="notes" v-for="note in notes">{{note}}</div>
           </div>
           <div class="column has-text-centered">
             <strong>Timestamp</strong>
+            <div v-for="timestamp in timestamps" class="timestamps">
+              {{ timestamp }}
+            </div>
           </div>
         </div>
-        <input-component></input-component>
+        <!-- Binding parameters -->
+        <!-- Adding the event listener -->
+        <input-component
+          :placeholder="placeholder"
+          @add-note="addNote"
+        ></input-component>
       </div>
     </div>
     <!-- Including Vue -->
