@@ -12,6 +12,13 @@
 // - mutations directly mutate/change store state
 // - when the state is mutated, relevant components/views are re-rendered
 
+// Application level data is the data that needs to be shared between components
+// notes and timestamps can be declared in the new state object
+const state = {
+  notes: [],
+  timestamps: [],
+};
+
 const inputComponent = {
   template: `<input placeholder="Enter a note" class="input is-small" type="text"/>`,
 };
