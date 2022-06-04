@@ -1,3 +1,9 @@
+// Creating the Event Bus
+// an event bus is a global property that is used to enable
+// isolated components to subscribe and publish
+// custom ecents between each other
+const emitter = mitt();
+
 const inputComponent = {
   // Binding data values
   // Adding an event handler
@@ -21,7 +27,7 @@ const inputComponent = {
       // $emit allows for a second optional argument that allows the caller to pass
       // arbitrary values along with the emitted event
       // monitorEnterKey's custome $emit event add-note receives a data object with two properties: the user input and the timestamp
-      this.$emit("add-note", {
+      emitter.emit("add-note", {
         note: this.input,
         timestamp: new Date().toLocaleString(),
       });
