@@ -8,3 +8,4 @@
 - [x] [productModule](src/app/store/modules/product/index.js)
 - [x] [productListItem](src/app/components/product/ProductListItem.vue)
 - [x] [cartModule](src/app/store/modules/cart/index.js)
+- [ ] - [x] [productListItem](src/app/components/cart/CarttListItem.vue)

@@ -1,7 +1,7 @@
 // Importing createStore
 import { createStore } from "vuex";
 import product from "./modules/product";
-import cart from "./modules/product";
+import cart from "./modules/cart";
 
 // Modules are used to separate an application store into more manageable fragments
 // the states of the modules can be independently access

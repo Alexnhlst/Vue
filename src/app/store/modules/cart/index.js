@@ -33,7 +33,7 @@ const actions = {
   // one final POST call is made to remove all items from the cart
   // it doesn't need a payload
   removeAllCartItems({ commit }) {
-    axios.post("?api/cart/delete/all").then((response) => {
+    axios.post("/api/cart/delete/all").then((response) => {
       commit("UPDATE_CART_ITEMS", response.data);
     });
   },
