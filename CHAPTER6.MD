@@ -9,3 +9,4 @@
 - [x] [Form Validation](05-form-validation/main.js)
 - [x] [Field Validation](06-field-validation/main.js)
 - [x] [Async Persistence](07-async-persistence/main.js)
+- [x] [Vuex](08-vuex/main.js)
