@@ -8,7 +8,7 @@ const InputForm = {
       <form @submit="submitForm" class="ui form">
         <div class="field">
           <label>New Item</label>
-          <input v-model="newItem" type="text" placeholder="Add an item!">
+          <input v-model="fields.newItem" type="text" placeholder="Add an item!">
         </div>
         <div class="field">
           <label>Email</label>

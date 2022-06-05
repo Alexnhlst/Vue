@@ -5,13 +5,20 @@ const InputForm = {
   // it creates two data binding between inputs and a data property
   // if an error arises we'll need to display it
   // we'll do this up by showing a validation error message, if they exist
+  // if the newItem field exceed the predefined length of characters, v-if will check if the computed property
+  // is true and show an error message
   template: `
     <div class="input-form">
       <form @submit="submitForm" class="ui form">
         <div class="field">
           <label>New Item</label>
           <input v-model="fields.newItem" type="text" placeholder="Add an item!">
-          <span style="color: red">{{fieldErrors.newItem}}</span>
+          <span style="float: right">{{ fields.newItem.length }}/20</span>
+          <span style="color: red">{{ fieldErrors.newItem }}</span>
+          <span v-if="isNewItemInputLimitExceeded"
+            style="color: red; display: block">
+            Must be under twenty characters
+          </span>
         </div>
 
         <div class="field">
@@ -29,6 +36,9 @@ const InputForm = {
             <option>Urgent</option>
           </select>
           <span style="color: red">{{fieldErrors.urgency}}</span>
+          <span v-if="isNotUrgent" style="color: red; display: block">
+            Must be moderate to urgent
+          </span>
         </div>
 
         <div class="field">
@@ -39,7 +49,7 @@ const InputForm = {
           </div>
         </div>
 
-        <button class="ui button">Submit</button>
+        <button class="ui button" :disabled="isNewItemInputLimitExceeded || isNotUrgent">Submit</button>
       </form>
       <div class="ui segment">
         <h4 class="ui header">Items</h4>
@@ -67,6 +77,14 @@ const InputForm = {
       // an empty array will contain the data inputted by the user
       items: [],
     };
+  },
+  computed: {
+    isNewItemInputLimitExceeded() {
+      return this.fields.newItem.length >= 20;
+    },
+    isNotUrgent() {
+      return this.fields.urgency === "Nonessential";
+    },
   },
   methods: {
     // an user enters an item and click submit
