@@ -5,4 +5,4 @@
 - [x] [Basic Button](01-basic-button/main.js)
 - [x] [Text Input - refs](02-text-input/main.js)
 - [x] [Text Input - v-model](03-text-input/main.js)
-- [ ] [Multiple Fields]()
+- [x] [Multiple Fields](04-multiple-fields/main.js)
