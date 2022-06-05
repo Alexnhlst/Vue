@@ -87,6 +87,17 @@ const InputForm = {
       saveStatus: "READY",
     };
   },
+  created() {
+    this.loading = true;
+    this.$store
+      .dispatch("loadItems")
+      .then((response) => {
+        this.loading = false;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  },
   computed: Vuex.mapGetters({
     newItem: "newItem",
     newItemLength: "newItemLength",
@@ -98,6 +109,14 @@ const InputForm = {
     items: "items",
   }),
   methods: {
+    onInputChange(evt) {
+      const element = evt.target;
+      const value =
+        element.name === "TERMS_AND_CONDITIONS"
+          ? element.checked
+          : element.value;
+      this.$store.commit(`UPDATE_${element.name}`, value);
+    },
     submitForm(evt) {
       evt.preventDefault();
       this.fieldErrors = this.validateForm(this.$store.state.fields);
@@ -143,25 +162,6 @@ const InputForm = {
       const re = /\S+@\S+\.\S+/;
       return re.test(email);
     },
-    onInputChange(evt) {
-      const element = evt.target;
-      const value =
-        element.name === "TERMS_AND_CONDITIONS"
-          ? element.checked
-          : element.value;
-      this.$store.commit(`UPDATE${element.name}`, value);
-    },
-  },
-  created() {
-    this.loading = true;
-    this.$store
-      .dispatch("loadItems")
-      .then((response) => {
-        this.loading = false;
-      })
-      .catch((error) => {
-        console.log(error);
-      });
   },
 };
 

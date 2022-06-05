@@ -53,7 +53,7 @@ const actions = {
     return new Promise((resolve, reject) => {
       const items = payload;
       apiClient.saveItems(payload).then(
-        () => {
+        (response) => {
           context.commit("UPDATE_ITEMS", items);
           context.commit("CLEAR_FIELDS");
           resolve(response);
@@ -88,7 +88,7 @@ let apiClient = {
     return {
       then: function (cb) {
         setTimeout(() => {
-          cb(JSON.parse(localStorage.items) || "[]");
+          cb(JSON.parse(localStorage.items || "[]"));
         }, 1000);
       },
     };
