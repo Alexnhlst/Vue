@@ -12,17 +12,17 @@ const InputForm = {
         <button class="ui button">Submit</button>
       </form>
     </div>`,
-};
-
-Vue.createApp({
-  components: {
-    "input-form": InputForm,
-  },
   methods: {
     // preventDefault() prevents the browser's default action of submitting the form
     submitForm(evt) {
       evt.preventDefault();
       console.log(this.$refs.newItem.value);
     },
+  },
+};
+
+Vue.createApp({
+  components: {
+    "input-form": InputForm,
   },
 }).mount("#app");
