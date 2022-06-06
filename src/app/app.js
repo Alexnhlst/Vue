@@ -1,12 +1,5 @@
-import mitt from "mitt";
-
-const emitter = mitt();
-
-// popstate is fired each time the active history entry changes
-// re-rendering the app correctly
-window.addEventListener("popstate", () => {
-  emitter.emit("navigate");
-});
+// importing createRouter and createWebHistory
+import { createRouter, createWebHistory } from "vue-router";
 
 const DunkirkBlurb = {
   name: "dunkirk-blurb",
@@ -52,68 +45,16 @@ const routes = [
   { path: "/dunkirk", component: DunkirkBlurb },
   { path: "/interstellar", component: InterstellarBlurb },
   { path: "/the-dark-knight-rises", component: TheDarkKnightRisesBlurb },
+  // to add the not found template with vue-router we use a custom param regular expresion
+  // the regexp is specified inside parentheses right ater the param
+  {
+    path: "/:patchMatch(.*)*",
+    component: {
+      name: "not-found-blurb",
+      template: `<h2>Not Found :(. Pick a movie from the list!</h2>`,
+    },
+  },
 ];
-
-// View needs to be built as a mounting point for Dynamic components
-// they constitute the ability to dinamically change between components based on a data attribute
-// this can be achieved by binding an is attribute to the reserved <component> element
-const View = {
-  name: "router-view",
-  template: `<component :is="currentView"></component>`,
-  data() {
-    return {
-      currentView: {},
-    };
-  },
-  created() {
-    if (this.getRouteObject() === undefined) {
-      this.currentView = {
-        template: `<h2>Not Found :(. Pick a movie from the list!</h2>`,
-      };
-    } else {
-      this.currentView = this.getRouteObject().component;
-    }
-    // the event listener/tirgger will be invoked when the browser's location changes
-    emitter.on("navigate", () => {
-      this.currentView = this.getRouteObject().component;
-    });
-  },
-  methods: {
-    getRouteObject() {
-      // window.location is a sepcial object containing the properties of the browser's current location
-      // pathname is the path of the URL
-      return routes.find((route) => route.path === window.location.pathname);
-    },
-  },
-};
-
-const Link = {
-  name: "router-link",
-  // prop validation
-  props: {
-    to: {
-      type: String,
-      required: true,
-    },
-  },
-  // when a user clicks a traditional <a> tag, the browser uses href to determinte the next location to visit
-  // href is bound to the value of the to prop
-  template: `<a @click="navigate" :href="to">{{to}}</a>`,
-  methods: {
-    navigate(evt) {
-      evt.preventDefault();
-      // pushing the new location onto the browser's history stack
-      // history.pushState() takes three arguments:
-      // a state object to pass serialized state information
-      // a title
-      // the target URL
-      window.history.pushState(null, null, this.to);
-      // whent router-link is updating the location of the browser, our Vue app is not alerted of the change
-      // an event bus triggers the app to re-render whenever the location changes
-      emitter.emit("navigate");
-    },
-  },
-};
 
 const App = {
   name: "App",
@@ -128,10 +69,16 @@ const App = {
         <router-view></router-view>
       </div>
     </div>`,
-  components: {
-    "router-view": View,
-    "router-link": Link,
-  },
 };
+
+// hash mode URLs always contain a hash symbol after the hostname
+// the benefit to this often lies with allowing us to have multiple client side
+// routes without having to provide the necessary server side fallbacks
+// everything after the hash symbol is never sent to the server
+// to remove hashes in our URLs, we'll specify the history mode property
+export const router = createRouter({
+  history: createWebHistory(),
+  routes,
+});
 
 export default App;
