@@ -3,3 +3,4 @@
 ### Chapter 7 milestones
 
 - [x] [Basic Vue Router](src/app/app.js)
+- [x] [router-link](src/app/app.js)

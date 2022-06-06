@@ -1,3 +1,13 @@
+import mitt from "mitt";
+
+const emitter = mitt();
+
+// popstate is fired each time the active history entry changes
+// re-rendering the app correctly
+window.addEventListener("popstate", () => {
+  emitter.emit("navigate");
+});
+
 const DunkirkBlurb = {
   name: "dunkirk-blurb",
   template: `<div>
@@ -63,6 +73,10 @@ const View = {
     } else {
       this.currentView = this.getRouteObject().component;
     }
+    // the event listener/tirgger will be invoked when the browser's location changes
+    emitter.on("navigate", () => {
+      this.currentView = this.getRouteObject().component;
+    });
   },
   methods: {
     getRouteObject() {
@@ -73,20 +87,50 @@ const View = {
   },
 };
 
+const Link = {
+  name: "router-link",
+  // prop validation
+  props: {
+    to: {
+      type: String,
+      required: true,
+    },
+  },
+  // when a user clicks a traditional <a> tag, the browser uses href to determinte the next location to visit
+  // href is bound to the value of the to prop
+  template: `<a @click="navigate" :href="to">{{to}}</a>`,
+  methods: {
+    navigate(evt) {
+      evt.preventDefault();
+      // pushing the new location onto the browser's history stack
+      // history.pushState() takes three arguments:
+      // a state object to pass serialized state information
+      // a title
+      // the target URL
+      window.history.pushState(null, null, this.to);
+      // whent router-link is updating the location of the browser, our Vue app is not alerted of the change
+      // an event bus triggers the app to re-render whenever the location changes
+      emitter.emit("navigate");
+    },
+  },
+};
+
 const App = {
   name: "App",
+  // the to attribute (props) has a value of the target location
   template: `
     <div id="app">
       <div class="movies">
         <h2>Which movie?</h2>
-        <a href="/dunkirk">/dunkirk</a>
-        <a href="/interstellar">/interstellar</a>
-        <a href="/the-dark-knight-rises">/the-dark-knight-rises</a>
+        <router-link to="/dunkirk">/dunkirk</router-link>
+        <router-link to="/interstellar">/interstellar</router-link>
+        <router-link to="/the-dark-knight-rises">/the-dark-knight-rises</router-link>
         <router-view></router-view>
       </div>
     </div>`,
   components: {
     "router-view": View,
+    "router-link": Link,
   },
 };
 
