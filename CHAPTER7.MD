@@ -5,4 +5,4 @@
 - [x] [Basic Vue Router](basics/src/app/app.js)
 - [x] [router-link](basics/src/app/app.js)
 - [x] [vue-router](basics/src/app/app.js)
-- [ ] [Dynamic Route Matching]()
+- [x] [Dynamic Route Matching](shopping_cart/src/app/router/index.js)
