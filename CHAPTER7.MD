@@ -8,3 +8,4 @@
 - [x] [Dynamic Route Matching](shopping_cart/src/app/router/index.js)
 - [x] [Login module](shopping_cart/src/app/store/modules/login/index.js)
 - [x] [Vue Watchers](shopping_cart/src/app/App.vue)
+- [x] [Navigation Guards](shopping_cart/src/app/router/index.js)
