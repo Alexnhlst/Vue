@@ -10,6 +10,7 @@
 > - [Chapter 6](/../../tree/chapter-6/CHAPTER6.MD)
 > - [Chapter 7](/../../tree/chapter-7/CHAPTER7.MD)
 > - [Chapter 8](/../../tree/chapter-8/CHAPTER8.MD)
+> - [Chapter 9](/../../tree/chapter-9/CHAPTER9.MD)
 
 
 _Other skills i'm learning and improving in the meanwhile_
