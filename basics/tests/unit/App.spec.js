@@ -96,4 +96,22 @@ describe("App.vue", () => {
       });
     });
   });
+
+  describe('the user clicks the "Remove all" label', () => {
+    let itemList;
+    let removeItemsLabel;
+    beforeEach(() => {
+      itemList = wrapper.find(".item-list");
+      removeItemsLabel = wrapper.find(".ui.label");
+      wrapper.setData({ items: ["Item #1", "Item #2", "Item #3"] });
+    });
+
+    it('should remove all items from the "items" data property', async () => {
+      await removeItemsLabel.trigger("click");
+      expect(wrapper.vm.items).to.deep.equal([]);
+      expect(itemList.html()).to.not.contain("<td>Item #1</td>");
+      expect(itemList.html()).to.not.contain("<td>Item #2</td>");
+      expect(itemList.html()).to.not.contain("<td>Item #3</td>");
+    });
+  });
 });
