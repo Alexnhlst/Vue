@@ -67,5 +67,33 @@ describe("App.vue", () => {
         expect(addItemButton.element.disabled).to.be.true;
       });
     });
+
+    describe("and then submits the form", () => {
+      let addItemButton;
+      let itemList;
+      let inputField;
+      beforeEach(async () => {
+        addItemButton = wrapper.find(".ui.button");
+        itemList = wrapper.find(".item-list");
+        inputField = wrapper.find("input");
+        // setData is a wrapper method that force updates the wrapper vm data object to set the item value to the one specified
+        wrapper.setData({ item: "New Item" });
+        await addItemButton.trigger("submit");
+      });
+
+      it('should add a new item to the "items" data property', () => {
+        expect(wrapper.vm.items).to.contain("New Item");
+        expect(itemList.html()).to.contain("<td>New Item</td>");
+      });
+
+      it('should set the "item" data property to a blank string', () => {
+        expect(wrapper.vm.item).to.equal("");
+        expect(inputField.element.value).to.equal("");
+      });
+
+      it('should disable the "Add" button', () => {
+        expect(addItemButton.element.disabled).to.be.true;
+      });
+    });
   });
 });
