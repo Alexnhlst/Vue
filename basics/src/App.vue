@@ -19,7 +19,7 @@
                 <div class="field">
                   <input type="text" class="prompt" v-model="item" placeholder="Add item...">
                 </div>
-                <button class="ui button" type="submit" :disabled="!item">Add</button>
+                <button type="submit" class="ui button" :disabled="!item">Add</button>
                 <span class="ui label" @click="removeAllItems">Remove all</span>
               </form>
             </th>
