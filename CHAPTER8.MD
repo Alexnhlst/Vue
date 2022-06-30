@@ -2,4 +2,4 @@
 
 ### Chapter 8 milestones
 
-- [ ] [Unit Testing] ()
+- [x] [Basic Unit Testing](/basics/tests/unit/App.spec.js/)
