@@ -8,3 +8,4 @@
 - [x] [Refactoring app as composition API](../../tree/chapter-9/composition-api/src/app/App.vue#L17-L87)
 - [x] [Refactoring ListingList component as composition API](../../tree/chapter-9/composition-api/src/app/components/ListingList.vue#L15-L78)
 - [x] [Refactoring ListingListItem component as composition API](../../tree/chapter-9/composition-api/src/app/components/ListingListItem.vue#L36-L78)
+- [x] [Notification Hook](./composition-api/src/app/hooks/useNotification.js)
