@@ -3,4 +3,4 @@
 ### Chapter 9 milestones
 
 - [x] [setup()](../../tree/chapter-9/MyComponent.vue#L9-L21)
-- [ ] [ref()]()
+- [x] [ref()](../../tree/chapter-9/MyComponent.vue#L16-L31)
