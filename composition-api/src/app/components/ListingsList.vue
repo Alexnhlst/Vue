@@ -1,10 +1,10 @@
 <template>
   <div id="listings">
-    <Notification :notification="notification" :toggleNotification="toggleNotification" :isDark="isDark" />
+    <Notification :notification="notification" :toggleNotification="toggleNotification" />
     <div v-for="listing in listings" :key="listing.id">
-      <ListingsListItem :listing="listing" :isDark="isDark" />
+      <ListingsListItem :listing="listing" />
     </div>
-    <button class="button is-light" :class="{ 'is-primary': isDark, 'is-info': !isDark }" @click="resetListings"
+    <button class="button is-light" :class="{ 'is-primary': darkMode, 'is-info': !darkMode }" @click="resetListings"
       :disabled="listings.length === 3">
       Reset
     </button>
@@ -48,14 +48,15 @@ import { onMounted } from "vue"
 import { useStore } from "vuex"
 import ListingsListItem from './ListingsListItem.vue'
 import Notification from './Notification.vue'
+import useDarkMode from '../hooks/useDarkMode';
 import useNotification from '../hooks/useNotification'
 export default {
   name: "ListingsList",
-  props: ["listings", "isDark"],
+  props: ["listings"],
   setup() {
     // Accessing the store
     const store = useStore();
-    // Reactive data properties
+    const { darkMode } = useDarkMode();
     const { notification, setNotification, toggleNotification } = useNotification()
     // Methods
     const resetListings = () => {
@@ -68,6 +69,7 @@ export default {
     });
     // Returning properties for component to access
     return {
+      darkMode,
       notification,
       toggleNotification,
       resetListings

@@ -7,24 +7,24 @@
     </figure>
     <div class="media-content">
       <div class="content">
-        <p :class="{ 'has-text-white': isDark }">
-          <strong :class="{ 'has-text-white': isDark }">
+        <p :class="{ 'has-text-white': darkMode }">
+          <strong :class="{ 'has-text-white': darkMode }">
             {{ listing.title }}
           </strong>
-          <small class="pl-1" :class="{ 'has-text-primary': isDark, 'has-text-info': !isDark }">
+          <small class="pl-1" :class="{ 'has-text-primary': darkMode, 'has-text-info': !darkMode }">
             {{ listing.address }}
           </small>
           <br>
           {{ listing.description }}
           <br>
-          <small class="has-text-weight-bold" :class="{ 'has-text-primary': isDark, 'has-text-info': !isDark }">
+          <small class="has-text-weight-bold" :class="{ 'has-text-primary': darkMode, 'has-text-info': !darkMode }">
             <span>${{ listing.price / 100 }}/day</span> · <span>Rating: {{ listing.rating }}/5</span>
           </small>
         </p>
       </div>
     </div>
     <div class="media-right">
-      <button class="button is-light is-small" :class="{ 'is-primary': isDark, 'is-info': !isDark }"
+      <button class="button is-light is-small" :class="{ 'is-primary': darkMode, 'is-info': !darkMode }"
         @click="removeListing(listing)">
         Remove
       </button>
@@ -47,14 +47,15 @@ export default {
 */
 // Refactored
 import { useStore } from "vuex";
+import useDarkMode from '../hooks/useDarkMode';
 import useNotification from '../hooks/useNotification';
 export default {
   name: "ListingListItem",
-  props: ["listing", "isDark"],
+  props: ["listing"],
   setup(props) {
     // Accessing the store
     const store = useStore();
-    // Notification
+    const { darkMode } = useDarkMode();
     const { setNotification } = useNotification()
     // Methods 
     const removeListing = () => {
@@ -63,6 +64,7 @@ export default {
     }
     // Returning properties for component to access
     return {
+      darkMode,
       removeListing
     }
   }

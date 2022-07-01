@@ -7,8 +7,17 @@
 </template>
 
 <script>
+import useDarkMode from '../hooks/useDarkMode';
+
 export default {
   name: 'Notification',
-  props: ['notification', 'toggleNotification']
+  props: ['notification', 'toggleNotification'],
+  setup() {
+    const { darkMode } = useDarkMode();
+
+    return {
+      darkMode
+    }
+  }
 }
 </script>
