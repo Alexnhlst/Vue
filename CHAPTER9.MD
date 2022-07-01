@@ -13,3 +13,4 @@
 - [x] [Implementing the hook in ListingListItem](../../tree/chapter-9/composition-api/src/app/components/ListingListItem.vue#L50-L63)
 - [x] [Dark mode hook](./composition-api/src/app/hooks/useDarkMode.js)
 - [x] [Implementing dark mode hook in App](../../tree/chapter-9/composition-api/src/app/App.vue#L52-L79)
+- [x] [Refactoring the store with reactive](./composition-api/src/app/store.js)
