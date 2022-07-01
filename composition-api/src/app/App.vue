@@ -15,10 +15,12 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-import ListingsList from './components/ListingsList.vue';
+/* Original
+  import { mapGetters } from 'vuex';
+import ListingsList from './components/ListingsList';
+
 export default {
-  name: "App",
+  name: 'App',
   data() {
     return {
       isDark: false,
@@ -30,16 +32,53 @@ export default {
       'loading'
     ]),
     darkModeButtonText() {
-      return this.isDark ? 'Light Mode' : "Dark Mode";
+      return this.isDark ? 'Light Mode' : 'Dark Mode';
     }
   },
   methods: {
     toggleDarkMode() {
-      this.isDark = !this.isDark
+      this.isDark = !this.isDark;
     }
   },
   created() {
-    this.$store.dispatch('getListings')
+    this.$store.dispatch('getListings');
+  },
+  components: {
+    ListingsList
+  }
+}
+*/
+// Refactored
+import { ref, computed } from 'vue'
+import { useStore } from "vuex";
+import ListingsList from './components/ListingsList.vue';
+export default {
+  name: "App",
+  setup() {
+    // Accessing the store
+    const store = useStore()
+    // Reactive data properties
+    const isDark = ref(false)
+    // Computed properties
+    const darkModeButtonText = computed(() => {
+      return isDark.value ? "Light Mode" : "Dark Mode"
+    });
+    const listings = computed(() => store.getters.listings)
+    const loading = computed(() => store.getters.loading)
+    // Methods
+    const toggleDarkMode = () => {
+      isDark.value = !isDark.value;
+    }
+    // Fire off actions for component created lifecycle stage
+    store.dispatch("getListings")
+    // Returning properties for component to access
+    return {
+      isDark,
+      darkModeButtonText,
+      listings,
+      loading,
+      toggleDarkMode
+    }
   },
   components: {
     ListingsList
