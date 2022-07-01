@@ -49,8 +49,7 @@ export default {
 }
 */
 // Refactored
-import { computed } from 'vue'
-import { useStore } from "vuex";
+import { computed, inject } from 'vue'
 import ListingsList from './components/ListingsList.vue';
 import useDarkMode from './hooks/useDarkMode'
 
@@ -58,17 +57,17 @@ export default {
   name: "App",
   setup() {
     // Accessing the store
-    const store = useStore()
+    const store = inject("store")
     // Hook
     const { darkMode, toggleDarkMode } = useDarkMode()
     // Computed properties
     const darkModeButtonText = computed(() => {
       return darkMode.value ? "Light Mode" : "Dark Mode"
     });
-    const listings = computed(() => store.getters.listings)
-    const loading = computed(() => store.getters.loading)
+    const listings = computed(() => store.state.listings)
+    const loading = computed(() => store.state.loading)
     // Fire off actions for component created lifecycle stage
-    store.dispatch("getListings")
+    store.actions.getListings()
     // Returning properties for component to access
     return {
       darkMode,

@@ -44,8 +44,7 @@ export default {
 }
 */
 // Refactored
-import { onMounted } from "vue"
-import { useStore } from "vuex"
+import { inject, onMounted } from "vue"
 import ListingsListItem from './ListingsListItem.vue'
 import Notification from './Notification.vue'
 import useDarkMode from '../hooks/useDarkMode';
@@ -55,13 +54,13 @@ export default {
   props: ["listings"],
   setup() {
     // Accessing the store
-    const store = useStore();
+    const store = inject('store');
     const { darkMode } = useDarkMode();
     const { notification, setNotification, toggleNotification } = useNotification()
     // Methods
     const resetListings = () => {
       setNotification("Listings have been reset!")
-      return store.dispatch("resetListings")
+      return store.actions.resetListings();
     };
     // Mounted lifecycle hook
     onMounted(() => {

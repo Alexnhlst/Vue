@@ -46,7 +46,7 @@ export default {
 }
 */
 // Refactored
-import { useStore } from "vuex";
+import { inject } from 'vue';
 import useDarkMode from '../hooks/useDarkMode';
 import useNotification from '../hooks/useNotification';
 export default {
@@ -54,13 +54,13 @@ export default {
   props: ["listing"],
   setup(props) {
     // Accessing the store
-    const store = useStore();
+    const store = inject('store');
     const { darkMode } = useDarkMode();
     const { setNotification } = useNotification()
     // Methods 
     const removeListing = () => {
       setNotification("Listing is to be deleted")
-      return store.dispatch("removeListing", props.listing)
+      return store.actions.removeListing(props.listing);
     }
     // Returning properties for component to access
     return {
