@@ -1,6 +1,6 @@
 <template>
   <div id="listings">
-    <Notification :notification="notification" :isDark="isDark" />
+    <Notification :notification="notification" :toggleNotification="toggleNotification" :isDark="isDark" />
     <div v-for="listing in listings" :key="listing.id">
       <ListingsListItem :listing="listing" :isDark="isDark" />
     </div>
@@ -44,10 +44,11 @@ export default {
 }
 */
 // Refactored
-import { ref, onMounted } from "vue"
+import { onMounted } from "vue"
 import { useStore } from "vuex"
 import ListingsListItem from './ListingsListItem.vue'
 import Notification from './Notification.vue'
+import useNotification from '../hooks/useNotification'
 export default {
   name: "ListingsList",
   props: ["listings", "isDark"],
@@ -55,19 +56,20 @@ export default {
     // Accessing the store
     const store = useStore();
     // Reactive data properties
-    const notification = ref(null);
+    const { notification, setNotification, toggleNotification } = useNotification()
     // Methods
-    const resetListings = () => store.dispatch("resetListings");
+    const resetListings = () => {
+      setNotification("Listings have been reset!")
+      return store.dispatch("resetListings")
+    };
     // Mounted lifecycle hook
     onMounted(() => {
-      notification.value = "Welcome to NewlineBnB!"
-      setTimeout(() => {
-        notification.value = null
-      }, 1000);
+      setNotification("Welcome to NewlineBnB!")
     });
     // Returning properties for component to access
     return {
       notification,
+      toggleNotification,
       resetListings
     }
   },
