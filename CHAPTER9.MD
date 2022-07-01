@@ -11,3 +11,4 @@
 - [x] [Notification Hook](./composition-api/src/app/hooks/useNotification.js)
 - [x] [Implementing the hook in ListingList](../../tree/chapter-9/composition-api/src/app/components/ListingList.vue#L58-L74)
 - [x] [Implementing the hook in ListingListItem](../../tree/chapter-9/composition-api/src/app/components/ListingListItem.vue#L50-L63)
+- [x] [Dark mode hook](./composition-api/src/app/hooks/useDarkMode.js)
