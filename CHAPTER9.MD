@@ -10,3 +10,4 @@
 - [x] [Refactoring ListingListItem component as composition API](../../tree/chapter-9/composition-api/src/app/components/ListingListItem.vue#L36-L78)
 - [x] [Notification Hook](./composition-api/src/app/hooks/useNotification.js)
 - [x] [Implementing the hook in ListingList](../../tree/chapter-9/composition-api/src/app/components/ListingList.vue#L58-L74)
+- [x] [Implementing the hook in ListingListItem](../../tree/chapter-9/composition-api/src/app/components/ListingListItem.vue#L50-L63)

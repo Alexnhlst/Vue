@@ -47,14 +47,20 @@ export default {
 */
 // Refactored
 import { useStore } from "vuex";
+import useNotification from '../hooks/useNotification';
 export default {
   name: "ListingListItem",
   props: ["listing", "isDark"],
   setup(props) {
     // Accessing the store
     const store = useStore();
+    // Notification
+    const { setNotification } = useNotification()
     // Methods 
-    const removeListing = () => store.dispatch("removeListing", props.listing)
+    const removeListing = () => {
+      setNotification("Listing is to be deleted")
+      return store.dispatch("removeListing", props.listing)
+    }
     // Returning properties for component to access
     return {
       removeListing
