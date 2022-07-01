@@ -15,4 +15,4 @@
 - [x] [Implementing dark mode hook in App](../../tree/chapter-9/composition-api/src/app/App.vue#L52-L79)
 - [x] [Refactoring the store with reactive](./composition-api/src/app/store.js)
 - [x] [provide/inject: provide("store")](../../tree/chapter-9/composition-api/src/main.js#L5-L10)
-- [ ] [provide/inject: inject("store")](../../tree/chapter-9/composition-api/src/app/App.vue#L52-L84)
+- [x] [provide/inject: inject("store")](../../tree/chapter-9/composition-api/src/app/App.vue#L52-L84)
